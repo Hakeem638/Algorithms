@@ -89,5 +89,23 @@ public class Algorithms {
         }
     }
 
+    // Gaussian elimination of an n-by-(n+1) matrix A
+    public static void gaussianElimination(double[][] A, int n) {
+        for (int i = 0; i <= n - 2; i++) {
+            for (int j = 0; j <= n - 1; j++) {
+                // ensure A[i][i] is not zero to avoid division by zero.
+                if(A[i][i] == 0) {
+                    System.out.println("Warning: Division by zero encountered, matrix might be singular or requires pivoting");
+                    return;
+                }
+
+                double factor = A[i][j]/A[i][i];
+                for (int k = 0; k <= n; k++) {
+                    A[j][k] = A[j][k] - factor*A[i][k];
+                }
+            }
+        }
+    }
+
 }
 

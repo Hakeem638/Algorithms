@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 
@@ -59,9 +60,35 @@ public class Main {
         int digit = Algorithms.binary(n);
         System.out.println("The number of binary digit of " + n + " is " + digit);
 
+
         // n! recursively
         long factorial = Algorithms.F(n);
         System.out.println("The factorial of " + n + " is " + factorial);
+
+
+        // Gaussian Elimination
+        int m = 3;
+        double[][] matrix = {
+                {2,1,-1,8},
+                {3,-1,2,-11},
+                {-2,1,2,-3}
+        };
+
+        Algorithms.gaussianElimination(matrix, m);
+        System.out.println("Matrix after Gaussian elimination is: ");
+        printMatrix(matrix, m);
+
+
+
+
+    }
+    public static void printMatrix(double[][] matrix, int n) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j <= n; j++) {
+                System.out.println(matrix[i][j] + "\t");
+            }
+            System.out.println();
+        }
     }
 
 }
