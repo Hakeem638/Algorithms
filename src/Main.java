@@ -21,6 +21,13 @@ public class Main {
         System.out.println("The maximum number is " + maximumNumber);
 
 
+        boolean unique = Algorithms.uniqueElement(num);
+        if (unique == true) {
+            System.out.println("The numbers are unique");
+        }
+        else {
+            System.out.println("The numbers are not unique");
+        }
     }
 
 }

@@ -20,7 +20,7 @@ public class Algorithms {
         return maxval;
     }
 
-    public static boolean uniqueElements(int[] array) {
+    public static boolean uniqueElement(int[] array) {
         for (int i = 0; i < array.length - 1; i++) {
            for  (int j = i + 1; j < array.length; j++) {
                if (array[i] == array[j]) {
