@@ -1,24 +1,36 @@
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
 public class Main {
     public static void main(String[] args) {
-        int[] num = {2, 5, 6, 8, 9, 1, 4, 0, 7, 3};
-        Scanner scan = new Scanner(System.in);
+        int[] array = Algorithms.arrayFunction();
 
-        System.out.println("Enter the number of integer you want to search: ");
-        int k = scan.nextInt();
+        Scanner scanner = new Scanner(System.in);
+        int k;
 
-        int returned = Algorithms.search(num, k);
-        if (returned != -1) {
-            System.out.println("The number is found in Index " + returned);
-        } else {
-            System.out.println("The number " + k + " was not found in the array");
-        }
+       while (true) {
+           System.out.println("Enter the size of the search key (positive integer): ");
+           if (scanner.hasNextInt()) {
+               k = scanner.nextInt();
+               if (k > 0){
+                   break;
+               }
+               else {
+                   System.out.println("Enter a positive integer greater as your key: ");
+               }
+           }
+           else {
+               System.out.println("Please enter a valid number: ");
+           }
+       }
+
+        Algorithms.search(array,k);
 
 
-        int maximumNumber = Algorithms.max(num);
+
+        /*int maximumNumber = Algorithms.max(num);
         System.out.println("The maximum number is " + maximumNumber);
 
 
@@ -27,7 +39,7 @@ public class Main {
             System.out.println("The numbers are unique");
         } else {
             System.out.println("The numbers are not unique");
-        }
+        }*/
 
     // matrix multiplication
         double[][] A = {
@@ -67,7 +79,7 @@ public class Main {
 
 
         // Gaussian Elimination
-        int m = 3;
+      /*  int m = 3;
         double[][] matrix = {
                 {2,1,-1,8},
                 {3,-1,2,-11},
@@ -88,7 +100,7 @@ public class Main {
                 System.out.println(matrix[i][j] + "\t");
             }
             System.out.println();
-        }
+        }*/
     }
 
 }

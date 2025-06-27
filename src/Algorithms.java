@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Algorithms {
     // Sequential search algorithm
     public static int search(int[] array, int k) {
@@ -107,5 +109,44 @@ public class Algorithms {
         }
     }
 
+
+    public static int[] arrayFunction() {
+        Scanner scanner = new Scanner(System.in);
+        int size;
+
+        // Validate array size
+        while (true) {
+            System.out.print("Enter the size of the array (positive integer): ");
+            if (scanner.hasNextInt()) {
+                size = scanner.nextInt();
+                if (size > 0) {
+                    break;
+                } else {
+                    System.out.println("Error: Size must be a positive integer.");
+                }
+            } else {
+                System.out.println("Error: Please enter a valid integer.");
+                scanner.next(); // clear invalid input
+            }
+        }
+
+        int[] array = new int[size];
+
+        // Validate array elements
+        for (int i = 0; i < size; i++) {
+            while (true) {
+                System.out.print("Enter integer for element " + (i + 1) + ": ");
+                if (scanner.hasNextInt()) {
+                    array[i] = scanner.nextInt();
+                    break;
+                } else {
+                    System.out.println("Error: Please enter a valid integer.");
+                    scanner.next(); // clear invalid input
+                }
+            }
+        }
+
+        return array;
+    }
 }
 
