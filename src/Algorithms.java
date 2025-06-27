@@ -1,15 +1,19 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Algorithms {
     // Sequential search algorithm
-    public static int search(int[] array, int k) {
+    public static List<Integer> search(int[] array, int k) {
+        // Dynamic array to store all matching indexes.
+        List<Integer> matchingIndexes = new ArrayList<>();
 
         for (int i = 0; i < array.length; i++) {
             if (array[i] == k) {
-                return i;
+               matchingIndexes.add(i);
             }
         }
-        return -1;
+        return matchingIndexes;
     }
 
     // Algorithm for finding the max element

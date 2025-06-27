@@ -1,24 +1,25 @@
 import java.util.Arrays;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 
 public class Main {
     public static void main(String[] args) {
-        int[] array = Algorithms.arrayFunction();
+        int[] array2 = Algorithms.arrayFunction();
 
         Scanner scanner = new Scanner(System.in);
         int k;
 
        while (true) {
-           System.out.println("Enter the size of the search key (positive integer): ");
+           System.out.println("Enter the search key (positive integer): ");
            if (scanner.hasNextInt()) {
                k = scanner.nextInt();
                if (k > 0){
                    break;
                }
                else {
-                   System.out.println("Enter a positive integer greater as your key: ");
+                   System.out.println("Enter a positive integer as your key: ");
                }
            }
            else {
@@ -26,7 +27,13 @@ public class Main {
            }
        }
 
-        Algorithms.search(array,k);
+       List<Integer> returned = Algorithms.search(array2,k);
+       if (!returned.isEmpty()) {
+           System.out.println("The number " + k + " is found at index(es) " + returned + ".");
+       }
+       else {
+           System.out.println("The number " + k + "is not found in the array.");
+       }
 
 
 
