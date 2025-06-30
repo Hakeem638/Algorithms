@@ -16,6 +16,7 @@ public class Algorithms {
         return matchingIndexes;
     }
 
+
     // Algorithm for finding the max element
     public static int max(int[] array) {
         int maxval = 0;
@@ -28,16 +29,18 @@ public class Algorithms {
     }
 
     // Algorithm to show if an array contains unique elements
-    public static boolean uniqueElement(int[] array) {
+    public static List<Integer>uniqueElement(int[] array) {
+        List<Integer> duplicates = new ArrayList<>();
         for (int i = 0; i < array.length - 1; i++) {
             for (int j = i + 1; j < array.length; j++) {
                 if (array[i] == array[j]) {
-                    return false;
-                }
+                    duplicates.add(array[i]);
 
+                }
+                break;
             }
         }
-        return true;
+        return duplicates;
     }
 
     // Matrix multiplication algorithm
@@ -113,7 +116,7 @@ public class Algorithms {
         }
     }
 
-
+    // A method that would take size of an array and an array.
     public static int[] arrayFunction() {
         Scanner scanner = new Scanner(System.in);
         int size;
@@ -151,6 +154,65 @@ public class Algorithms {
         }
 
         return array;
+    }
+
+
+    // Method that would take a number with validations.
+    public static int numberInput() {
+        Scanner scanner = new Scanner(System.in);
+        int n;
+        while (true) {
+            System.out.println("Enter a number : ");
+            if (scanner.hasNextInt()) {
+                n = scanner.nextInt();
+                break;
+            }
+            else {
+                System.out.println("Enter a valid positive integer: ");
+            }
+        }
+        return n;
+    }
+
+
+    // Matrix user input Method.
+
+    public static double[][] userMatrix() {
+        Scanner scanner = new Scanner(System.in);
+
+        int rows, cols;
+
+        // Take dimensions
+        System.out.print("Enter number of rows: ");
+        rows = scanner.nextInt();
+
+        System.out.print("Enter number of columns: ");
+        cols = scanner.nextInt();
+
+        // Declare matrix
+        double[][] matrix = new double[rows][cols];
+
+        // Take input
+        System.out.println("Enter the elements of the matrix:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                System.out.print("Element [" + i + "][" + j + "]: ");
+                matrix[i][j] = scanner.nextDouble(); // Use nextDouble for double matrix
+            }
+        }
+
+        return matrix;
+    }
+
+
+    // Print Matrix method.
+    public static void printMatrix(double[][] matrix, int n) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j <= n; j++) {
+                System.out.println(matrix[i][j] + "\t");
+            }
+            System.out.println();
+        }
     }
 }
 
